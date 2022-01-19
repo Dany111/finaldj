@@ -114,7 +114,10 @@ class Enrollment(models.Model):
     #        return True
     #    else:
     #        return False
-
+class Quetion(models.Model):
+    question_text = models.CharField(max_length=200)
+    question_grade = models.IntegerField()
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
 
 #  <HINT> Create a Choice Model with:
     # Used to persist choice content for a question
@@ -122,7 +125,7 @@ class Enrollment(models.Model):
     # Choice content
     # Indicate if this choice of the question is a correct one or not
     # Other fields and methods you would like to design
-# class Choice(models.Model):
+class Choice(models.Model):
 
 # <HINT> The submission model
 # One enrollment could have multiple submission
