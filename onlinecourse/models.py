@@ -114,7 +114,7 @@ class Enrollment(models.Model):
     #        return True
     #    else:
     #        return False
-class Quetion(models.Model):
+class Question(models.Model):
     question_text = models.CharField(max_length=200)
     question_grade = models.IntegerField()
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
@@ -126,6 +126,7 @@ class Quetion(models.Model):
     # Indicate if this choice of the question is a correct one or not
     # Other fields and methods you would like to design
 class Choice(models.Model):
+
 
 # <HINT> The submission model
 # One enrollment could have multiple submission
