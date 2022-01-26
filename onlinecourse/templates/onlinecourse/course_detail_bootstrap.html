@@ -103,11 +103,9 @@
                 <form id="questionform" action="" method="post">
                     <!-- ... for each question in the course ... -->
                     {% for lesson in course.lesson_set.all %}
-                        
-                        <div class="card mt-1">
                         {% for question in lesson.question_set.all %}
+                        <div class="card mt-1">
                         <div class="card-header"><h5>{{ question.question_text }}</h5></div>
-                       
                         {% csrf_token %}
                         <div class="form-group">
                            {% for choice in question.choice_set.all %}
@@ -118,14 +116,15 @@
                                            value="{{choice.id}}">{{ choice.choice_text }}
                                 </label>
                               
-                            {% endfor %}
+                            
                         </div>
+                        {% endfor %}
                         {% endfor %}
                     {% endfor %}      
                     </div>
                     
                 <input class="btn btn-success btn-block" type="submit" value="Submit">
-                </form> -->
+                </form> 
                 {% endif%}
             </div>
        
