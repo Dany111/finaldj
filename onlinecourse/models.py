@@ -124,12 +124,6 @@ class Question(models.Model):
     def __str__(self):
         return "question: " + self.question_text
 
-#  <HINT> Create a Choice Model with:
-    # Used to persist choice content for a question
-    # One-To-Many (or Many-To-Many if you want to reuse choices) relationship with Question
-    # Choice content
-    # Indicate if this choice of the question is a correct one or not
-    # Other fields and methods you would like to design
 class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     is_correct = models.BooleanField()
@@ -139,10 +133,6 @@ class Choice(models.Model):
         return "text: " + self.choice_text + ", " + \
             "Question: " + self.question_id.question_text
 
-# <HINT> The submission model
-# One enrollment could have multiple submission
-# One submission could have multiple choices
-# One choice could belong to multiple submissions
 class Submission(models.Model):
    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
    choices = models.ManyToManyField(Choice)
