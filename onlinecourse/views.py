@@ -122,8 +122,14 @@ def submit(request, course_id):
         return HttpResponseRedirect(reverse(viewname='onlinecourse:enroll', args=(course.id)))    
 
     return redirect('onlinecourse:login')
+def show_exam_result(request, course_id, submission_id):
+    # getting course and submission object
+     course = get_object_or_404(Course, pk=course_id)
+     submission = get_object_or_404(Submission, pk=submission_id)
+     # retrieve all subitted choices 
+     choices = submission.choices.all()
+     # check choice correctness
+     total_score = 0   
+
     
-
-
-
 
